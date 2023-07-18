@@ -118,37 +118,49 @@ animal1.displayInformation();
 const dog1 = new Dog ("Molossus","talbot");
 dog1.displayInformation();
             
-   class Backaccount{
-    constructor(accountnum,balance){
-        this.accountnum=accountnum;
-        this.balance=balance;
+  class BankAccount{
+    get accNumber(){
+        return this.accountNumber;
+    }
+    set accNumber(num){
+        this.accountNumber = num;
+    }
+    get bal(){
+        return this.balance;
+    }
+    set bal(num){
+        this.balance = num;
     }
     deposit(amount){
-        if(amount>0){
-            this.balance+= amount;
-            console.log(`Deposited ${amount} into account ${this.accountnum}.`);
-        } else{
-            console.log(`Invalid amount. Deposit amount must be greater than 0.`);
-        }
-        }
-   withdraw (amount){
-    if(amount > 0){
-        if(amount <= this.balance){
-            this.balance -= amount;
-            console.log(`Withdrawn ${amount} from account $[this.accountnum].`);
-          } else {
-            console.log("Insufficient funds.");
-          }
-    } else{
-        console.log("Insufficient funds.");
-    }        
-} else {
-    console.log("Invalid amount. Withdrawal amount must be greater than 0. ");
+        this.balance += amount;
+        console.log(this.balance);
+    }
+    withdraw(amount){
+        this.balance -= amount;
+        console.log(this.balance);
     }
 }
-getBalance(){
-    return this.balance;
-}
-}
 
+const account = new BankAccount();
+account.bal=5600;
+account.accNumber = "00001-bac-00010";
+console.log(account.bal);
+account.deposit(5000);
+account.withdraw(3050);
 
+class Employee{
+    constructor(name,salary,hire_date){
+        this.name=name;
+        this.salary=salary;
+        this.hire_date=hire_date;
+    }
+    displayInformation(){
+        console.log(`Employee information:
+        name = ${this.name}
+        salary = ${this.salary}
+         hiredate= ${this.hire_date}`)
+    }
+
+}
+const Employeeinformation = new Employee('Sir ahdad','400000',1970) 
+Employeeinformation.displayInformation();
